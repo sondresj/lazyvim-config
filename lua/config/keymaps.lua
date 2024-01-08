@@ -5,7 +5,7 @@
 vim.g.mapleader = " "
 local map = vim.keymap.set
 
-map("n", "<space>", "<nop>")
+-- map("n", "<space>", "<nop>")
 
 -- note: the following is not all keymappings, some are also set up for plugins, which cannot be mapped here.
 -- In particular, Code mappings reside in plugins/lsp.lua
