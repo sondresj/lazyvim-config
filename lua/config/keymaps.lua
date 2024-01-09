@@ -56,10 +56,18 @@ map("n", "<A-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window w
 map("n", "<A-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
 map("n", "<A-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
 
--- Floating terminal
---local termopen = function() require("terminal").open() end
---map("n", "<leader>ft", termopen, { desc = "Terminal (root dir)" })
---map("n", "<c-/>", termopen, { desc = "Terminal (root dir)" })
+-- floating terminal
+
+local Util = require("lazyvim.util")
+local lazyterm = function()
+    Util.terminal(nil, { cwd = Util.root(), border = "rounded" })
+end
+map("n", "<leader>ft", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<leader>fT", function()
+    Util.terminal(nil, { border = "rounded" })
+end, { desc = "Terminal (cwd)" })
+map("n", "<c-/>", lazyterm, { desc = "Terminal (root dir)" })
+map("n", "<c-_>", lazyterm, { desc = "which_key_ignore" })
 
 -- Terminal Mappings
 map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
