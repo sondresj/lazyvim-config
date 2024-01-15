@@ -1,6 +1,6 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+-- oions are automatically loaded before lazy.nvim startup
+-- Default oions that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/oions.lua
+-- Add any additional oions here
 vim.o.number = true
 vim.o.relativenumber = true
 
@@ -34,3 +34,13 @@ vim.o.smartcase = true
 
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+
+if require("lazyvim.util").is_win() then
+    vim.o.shell = "pwsh"
+    vim.o.shellcmdflag =
+        "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+    vim.o.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+    vim.o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+    vim.o.shellquote = ""
+    vim.o.shellxquote = ""
+end
