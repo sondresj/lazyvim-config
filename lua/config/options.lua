@@ -24,7 +24,7 @@ vim.o.undofile = true
 vim.o.hlsearch = false
 vim.o.incsearch = true
 
-vim.o.scrolloff = 999
+vim.o.scrolloff = 8
 
 vim.o.mouse = "a"
 vim.o.virtualedit = "block"
