@@ -8,7 +8,7 @@ return {
         vim.g.openscad_auto_open = true
         vim.g.openscad_default_mappings = false
         vim.g.openscad_cheatsheet_toggle_key = "<leader>ch"
-        vim.g.openscad_exec_openscad_trig_key = "<C-o>"
+        -- vim.g.openscad_exec_openscad_trig_key = "<C-o>"
 
         require("openscad")
     end,

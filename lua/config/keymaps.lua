@@ -16,16 +16,9 @@ map({ "i", "n", "v" }, "<C-s>", "<cmd>wa<CR>", { desc = "Save all buffers (:wa)"
 -- map({ "i", "n" }, "<esc>", "<cmd>noh<CR><esc>", { silent = true }) -- clear search on esc
 -- map('n', "<leader>qq", "<cmd>qa<CR>", { desc = "Quit all (:qa)" })
 map("n", "Q", "<nop>", { silent = true, desc = "Prevent Q mode" })
-
--- better arrow movement with wrapped lines
-map({ "n", "x" }, "<Down>", "gj", { silent = true, desc = "Next visual line (wrapped)" })
-map({ "n", "x" }, "<Up>", "gk", { silent = true, desc = "Previous visual line (wrapped)" })
-map({ "n", "x" }, "<End>", "g$", { silent = true, desc = "End of visual line (wrapped)" })
-map({ "n", "x" }, "<Home>", "g0", { silent = true, desc = "Beginning of visual line (wrapped)" })
-map("i", "<Down>", "<C-o>gj", { silent = true, desc = "Next visual line (wrapped)" })
-map("i", "<Up>", "<C-o>gk", { silent = true, desc = "Previous visual line (wrapped)" })
-map("i", "<End>", "<C-o>g$", { silent = true, desc = "End of visual line (wrapped)" })
-map("i", "<Home>", "<C-o>g0", { silent = true, desc = "Beginning of visual line (wrapped)" })
+-- greatest remap ever (apparently, according to ThePrimeAgen)
+-- it discards whatever you paste over and keep what you pasted in the default register
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Line movement (insert mode sift arrows to move line)
 map("n", "<S-Up>", "<cmd>m .-2<CR>==", { desc = "Move line up" })
@@ -38,8 +31,6 @@ map("v", "<S-Down>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 -- Buffer management
 map("n", "<leader>bd", "<cmd>bd<CR>", { desc = "Close buffer" })
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<S-Left>", "<cmd>bprevious<CR>", { desc = "Go to left buffer" })
-map("n", "<S-Right>", "<cmd>bnext<CR>", { desc = "Go to right buffer" })
 map("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Go to left buffer" })
 map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Go to right buffer" })
 
@@ -47,10 +38,6 @@ map("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Go to right buffer" })
 map("n", "<leader>wd", "<C-W>c", { desc = "Close window" })
 map("n", "<leader>w-", "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split window right" })
-map("n", "<C-Left>", "<C-w>h", { desc = "Go to left window" })
-map("n", "<C-Right>", "<C-w>l", { desc = "Go to right window" })
-map("n", "<C-Up>", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<C-Down>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<A-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
 map("n", "<A-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
 map("n", "<A-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
