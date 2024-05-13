@@ -8,6 +8,13 @@ return {
             --opts = {
             --    openscad_lsp.setup({})
             --}
+            opts = {
+                setup = {
+                    denols = function(_, __)
+                        return true
+                    end,
+                },
+            },
         },
     },
     opts = {
