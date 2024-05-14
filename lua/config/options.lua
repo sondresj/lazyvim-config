@@ -35,6 +35,8 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
+vim.o.shell = "fish"
+
 if require("lazyvim.util").is_win() then
     vim.o.shell = "pwsh"
     vim.o.shellcmdflag =
