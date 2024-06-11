@@ -1,4 +1,5 @@
 return {
+    enabled = false,
     "salkin-mada/openscad.nvim",
     dependencies = {
         "L3MON4D3/LuaSnip",

@@ -14,6 +14,9 @@ return {
                         return true
                     end,
                 },
+                inlay_hints = {
+                    enabled = false,
+                },
             },
         },
     },
