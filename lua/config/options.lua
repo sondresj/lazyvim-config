@@ -12,6 +12,7 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 
+vim.g.editorconfig = true
 vim.o.smartindent = true
 vim.o.wrap = true
 
@@ -36,6 +37,9 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 vim.o.shell = "fish"
+
+-- disable inlay hints (new in .10)
+vim.lsp.inlay_hint.enable(false, nil)
 
 if require("lazyvim.util").is_win() then
     vim.o.shell = "pwsh"
